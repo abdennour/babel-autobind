@@ -3,10 +3,10 @@
 
 # Overview
 
-#### Compatible with stub/spy used on unit-test frameworks (Sinon.Js, enzyme,...so on) since it binds functions  to class prototype.
+#### it binds methods  to its class prototype + Compatible with stub/spy used on unit-test frameworks (Sinon.Js, enzyme,...so on) + Can be integrated with 3rd party decorators (like @autobind)
 
 
-# Use Case
+# Basic Example :
 
 ```js
 import {Autobind} from 'babel-autobind';
