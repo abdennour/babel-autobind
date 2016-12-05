@@ -1,6 +1,6 @@
 {
   "name": "babel-autobind",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "it binds methods  to its class prototype + Compatible with stub/spy used on unit-test frameworks (Sinon.Js, enzyme,...so on) + Can be integrated with 3rd party decorators (like @autobind decorator)",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,8 @@
     "addon",
     "unit-test",
     "expect",
-    "autobind-decorator"
+    "autobind-decorator",
+    "enzyme"
   ],
   "author": "Abdennour TOUMI <http://abdennoor.com>",
   "license": "MIT",

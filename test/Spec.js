@@ -66,4 +66,12 @@ describe(`babel-autobind`, () => {
       wrapper.instance().handleClick({});
     }).toNotThrow();
   });
+
+  it(`rename the bound class to be the same as the name of the original class`, () => {
+    let Target = Autobind(ComponentWithoutBinding);
+    expect(Target.name).toNotEqual('ComponentWithoutBinding');
+    Target = Autobind(ComponentWithoutBinding, true);
+    expect(Target.name).toEqual('ComponentWithoutBinding');
+  });
+
 });
