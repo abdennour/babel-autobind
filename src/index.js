@@ -2,7 +2,7 @@ export function Autobind(Mocked, sameName) {
   const methods = Object.getOwnPropertyNames(Mocked.prototype);
   const methodsExcluded = ['constructor', 'render'];
   const ruleIncluder = (methodName =>
-    !methodsExcluded.includes(methodName) &&
+    methodsExcluded.indexOf(methodName) < 0 &&
     (typeof Object.getOwnPropertyDescriptor(Mocked.prototype, methodName).set === 'undefined')
   );
 
