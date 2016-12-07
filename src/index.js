@@ -1,4 +1,4 @@
-export function Autobind(Mocked, sameName) {
+export function Autobind(Mocked, ClassName) {
   const methods = Object.getOwnPropertyNames(Mocked.prototype);
   const methodsExcluded = ['constructor', 'render'];
   const ruleIncluder = (methodName =>
@@ -14,16 +14,16 @@ export function Autobind(Mocked, sameName) {
       });
     }
   }
-  if(sameName) {
-    const rename = (() => {
-      Object.defineProperty(Mocker, 'name', {
-        writable: true
-      });
-      Mocker.name = (Mocked.name && Mocked.name.length) ? Mocked.name : 'Component';
-      Object.defineProperty(Mocker, 'name', {
-        writable: false
-      });
-    })();
-  }
+
+  const rename = (() => {
+    Object.defineProperty(Mocker, 'name', {
+      writable: true
+    });
+    Mocker.name =  ClassName || Mocked.name || 'AutoBoundComponent';
+    Object.defineProperty(Mocker, 'name', {
+      writable: false
+    });
+  })();
+
   return Mocker;
 };

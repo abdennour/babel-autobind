@@ -67,11 +67,15 @@ describe(`babel-autobind`, () => {
     }).toNotThrow();
   });
 
-  it(`rename the bound class to be the same as the name of the original class`, () => {
-    let Target = Autobind(ComponentWithoutBinding);
-    expect(Target.name).toNotEqual('ComponentWithoutBinding');
-    Target = Autobind(ComponentWithoutBinding, true);
-    expect(Target.name).toEqual('ComponentWithoutBinding');
+  it(`returns a class with the same name of the original class even it is wrapper by "Autobind(...)" `, () =>{
+     const Target = Autobind(ComponentWithoutBinding);
+     expect(Target.name).toEqual(ComponentWithoutBinding.name);
+  });
+
+  it(`gives the opportunity to control the name of the bound class`, () => {
+
+    const Target = Autobind(ComponentWithoutBinding, 'AnotherName');
+    expect(Target.name).toEqual('AnotherName');
   });
 
 });
