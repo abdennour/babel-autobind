@@ -12,10 +12,11 @@ import {
 
 import ComponentWithoutBinding from './examples/ComponentWithoutBinding';
 import ComponentWithOurAutoBind from './examples/ComponentWithOurAutoBind';
-import ComponentWithAutoBindDecorator from './examples/ComponentWithAutoBindDecorator';
+import Decorated from './examples/Decorated';
+import ComponentWith3rdParty from './examples/ComponentWith3rdParty';
 
 
-const ComponentBoundAgain = Autobind(ComponentWithAutoBindDecorator);
+const ComponentBoundAgain = Autobind(ComponentWith3rdParty);
 
 
 describe(`babel-autobind`, () => {
@@ -27,10 +28,17 @@ describe(`babel-autobind`, () => {
     }).toNotThrow();
   });
 
-  it(`proves that using "@autobind decorator" is not enough to stub/spy methods`, () => {
+  it(`can be used as decorator → @Autobind`, () => {
+    const wrapper = mount( <Decorated /> );
+    expect(() => {
+      wrapper.instance().handleClick({});
+    }).toNotThrow();
+  });
+
+  it(`proves that using 3rd-party "@autobind decorator" is not enough to stub/spy methods`, () => {
     expect(() => {
       const stub = sinon.stub(
-        ComponentWithAutoBindDecorator.prototype,
+        ComponentWith3rdParty.prototype,
         'handleClick'
       ).returns(true);
       stub.restore();

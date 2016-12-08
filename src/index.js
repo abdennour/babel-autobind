@@ -1,4 +1,5 @@
 export function Autobind(Mocked, ClassName) {
+
   const methods = Object.getOwnPropertyNames(Mocked.prototype);
   const getMethodProperty = (methodName, prop) => Object.getOwnPropertyDescriptor(Mocked.prototype, methodName)[prop];
   const methodsExcluded = ['constructor', 'render'];

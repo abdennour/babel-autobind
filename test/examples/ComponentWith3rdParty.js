@@ -2,7 +2,7 @@ import React from 'react';
 import autobind  from 'autobind-decorator';
 
 @autobind
-class ComponentWithAutoBindDecorator extends React.Component {
+class ComponentWith3rdParty extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,4 +23,4 @@ class ComponentWithAutoBindDecorator extends React.Component {
   }
 }
 
-export default ComponentWithAutoBindDecorator;
+export default ComponentWith3rdParty;
