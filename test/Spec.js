@@ -13,6 +13,8 @@ import {
 import ComponentWithoutBinding from './examples/ComponentWithoutBinding';
 import ComponentWithOurAutoBind from './examples/ComponentWithOurAutoBind';
 import Decorated from './examples/Decorated';
+import DecoratedAndRenamed from './examples/DecoratedAndRenamed';
+
 import ComponentWith3rdParty from './examples/ComponentWith3rdParty';
 
 
@@ -80,10 +82,20 @@ describe(`babel-autobind`, () => {
      expect(Target.name).toEqual(ComponentWithoutBinding.name);
   });
 
-  it(`gives the opportunity to control the name of the bound class`, () => {
+  it(`gives new name to the bound class`, () => {
 
     const Target = Autobind(ComponentWithoutBinding, 'AnotherName');
     expect(Target.name).toEqual('AnotherName');
+  });
+
+  it(`gives new name ALSO via the decorator @Autobind throught binding`, () => {
+
+    const wrapper = mount(<DecoratedAndRenamed /> );
+    expect(DecoratedAndRenamed.name).toEqual('AnotherName');
+    expect(() => {
+      wrapper.instance().handleClick({});
+    }).toNotThrow();
+
   });
 
 });

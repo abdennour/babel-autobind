@@ -42,3 +42,17 @@ import {Autobind} from 'babel-autobind';
  }
  export default Autobind(MyComponent,'YourComponent');
 ```
+
+From release `0.3.3`, it is possible to rename the class name from decorator too.
+
+#### Example
+
+```js
+import {Autobind} from 'babel-autobind';
+
+@Autobind('YourComponent')
+ class MyComponent extends React.Component {
+
+ }
+ export default MyComponent;
+```

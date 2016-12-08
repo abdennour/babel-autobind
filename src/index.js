@@ -1,5 +1,9 @@
 export function Autobind(Mocked, ClassName) {
-
+  if (typeof Mocked === 'string') {
+    return function(target) {
+      return Autobind(target, Mocked);
+    }
+  }
   const methods = Object.getOwnPropertyNames(Mocked.prototype);
   const getMethodProperty = (methodName, prop) => Object.getOwnPropertyDescriptor(Mocked.prototype, methodName)[prop];
   const methodsExcluded = ['constructor', 'render'];
@@ -21,7 +25,7 @@ export function Autobind(Mocked, ClassName) {
     Object.defineProperty(Mocker, 'name', {
       writable: true
     });
-    Mocker.name =  ClassName || Mocked.name || 'AutoBoundComponent';
+    Mocker.name = ClassName || Mocked.name || 'AutoBoundComponent';
     Object.defineProperty(Mocker, 'name', {
       writable: false
     });
