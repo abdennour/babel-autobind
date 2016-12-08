@@ -1,9 +1,10 @@
 export function Autobind(Mocked, ClassName) {
   const methods = Object.getOwnPropertyNames(Mocked.prototype);
+  const getMethodProperty = (methodName, prop) => Object.getOwnPropertyDescriptor(Mocked.prototype, methodName)[prop];
   const methodsExcluded = ['constructor', 'render'];
   const ruleIncluder = (methodName =>
     methodsExcluded.indexOf(methodName) < 0 &&
-    (typeof Object.getOwnPropertyDescriptor(Mocked.prototype, methodName).set === 'undefined')
+    (typeof getMethodProperty(methodName, 'value') === 'function')
   );
 
   class Mocker extends Mocked {
