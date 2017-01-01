@@ -31,5 +31,9 @@ export function Autobind(Mocked, ClassName) {
     });
   })();
 
+  Object.keys(Mocked).forEach(staticAttribute => {
+    Mocker[staticAttribute] = Mocked[staticAttribute]
+  });
+
   return Mocker;
 };

@@ -1,6 +1,6 @@
 {
   "name": "babel-autobind",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "it binds methods  to its class prototype + Compatible with stub/spy used on unit-test frameworks (Sinon.Js, enzyme,...so on) + Can be integrated with 3rd party decorators (like @autobind decorator)",
   "main": "index.js",
   "scripts": {

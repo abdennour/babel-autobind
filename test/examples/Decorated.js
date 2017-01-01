@@ -23,4 +23,6 @@ class Decorated extends React.Component {
   }
 }
 
+Decorated.StaticAttr = 'abcdef';
+
 export default Decorated;

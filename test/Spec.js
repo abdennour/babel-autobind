@@ -98,4 +98,8 @@ describe(`babel-autobind`, () => {
 
   });
 
+  it(`conserves static attributes`, () => {
+    expect(Decorated.StaticAttr).toEqual('abcdef');
+  });
+
 });
