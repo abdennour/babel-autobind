@@ -29,9 +29,6 @@ import {Autobind} from 'babel-autobind';
  export default Autobind(MyComponent);
 ```
 
-
-**@Autobind** decorator is more elegant  than **Autobind(...)** function , However ,  **Autobind(...)** function is overloaded . Indeed, it accepts 2nd argument to rename the class after binding.
-
 #### Example
 
 ```js
